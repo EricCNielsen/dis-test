@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(https://s3-us-west-1.amazonaws.com/baking-blog/Screen+Shot+2019-05-05+at+9.12.36+PM.png);
+    background-size: cover;
+}
+
+@keyframes pop {
+        0% {
+            height: 0%;
+        }
+        50% {
+            height: 0%;
+        }
+        100% {
+            height: 100%;
+        }
+    }
+
+
+.pop-up {
+    animation: pop 0.8s ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 30;
+}
+
+.inner {
+    width: 30%;
+    height: fit-content;
+    background: white;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1% 0%;
+}
+.inner h2 {
+    font-weight: bolder;
+    font-size: 40px;
+    margin-top: 0%;
+}
+.inner h5 {
+    font-size:25px;
+    margin: 0 auto;
+    font-weight:100;
+}
+.inner div {
+    background: skyblue;
+    padding: 5px 50px 0px 50px;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border-radius: 50%;
+    background-color: lightgray;
+    padding: 0em .25em;
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1142px) {
+    .inner {
+        width: 30%;
+        height: fit-content;
+        background: white;
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5% 0%;
+        text-align: center;
+        }
+    .inner h2 {
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+    .close {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        border-radius: 50%;
+        background-color: lightgray;
+        padding: 0em .32em .1em;
+        font-weight: 900;
+        font-size: 20px;
+        color: white;
+    }
+}
+
+@media (max-width: 803px) {
+    body {
+        background-image: url(https://s3-us-west-1.amazonaws.com/baking-blog/Screen+Shot+2019-05-05+at+9.53.27+PM.png);
+    }
+    .inner {
+        width: 70%;
+        height: fit-content;
+        background: white;
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5% 0%;
+        text-align: center;
+        }
+    .inner h2 {
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+    .close {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        border-radius: 50%;
+        background-color: lightgray;
+        padding: 0em .32em .1em;
+        font-weight: 900;
+        font-size: 20px;
+        color: white;
+    }
+}
+
+
+
+</style>
+</head>
+<body>
+    
+<div class="pop-up" id="pop-up">
+    <div class="inner">
+        <span class="close">&times;</span> 
+        <p style="margin-bottom: 0;">Having a hard time deciding?</p>
+        <h2>Here, have 15% off!</h2>
+        <h5>Use Code</h5>
+        <div>15OFF</div>
+        <h5>at checkout!</h5>
+    </div>
+</div>
+
+<script>
+
+    var modal = document.getElementById('pop-up');
+    
+    var span = document.getElementsByClassName("close")[0];
+    
+    span.onclick = function() {
+        console.log("onclick happening")
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
